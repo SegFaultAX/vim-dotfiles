@@ -43,3 +43,6 @@
 [submodule "bundle/ropevim"]
 	path = bundle/ropevim
 	url = https://github.com/sontek/rope-vim.git
+[submodule "bundle/snippets"]
+	path = bundle/snippets
+	url = https://github.com/scrooloose/snipmate-snippets.git
