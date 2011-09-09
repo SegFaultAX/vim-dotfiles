@@ -118,6 +118,16 @@ map <leader>tm :tabmove
 map <leader>tn :tabn<cr>
 map <leader>tp :tabp<cr>
 
+" Fuzzy finder
+map <leader>fb :FufBuffer<cr>
+map <leader>ff :FufFile<cr>
+map <leader>fd :FufDir<cr>
+map <leader>fl :FufLine<cr>
+map <leader>fh :FufHelp<cr>
+map <leader>fc :FufChangeList<cr>
+map <leader>fj :FufJumpList<cr>
+map <leader>ft :FufTag<cr>
+
 " When pressing <leader>cd switch to the directory of the open buffer
 map <leader>cd :cd %:p:h<cr>
 
