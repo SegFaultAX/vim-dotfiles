@@ -55,8 +55,12 @@ set showmatch
 
 " Colors
 set t_Co=256
-set background=dark
-colorscheme desert256
+if has('gui_running')
+  colorscheme molokai
+else
+  set background=dark
+  colorscheme desert256
+endif
 syntax enable
 
 " Space toggle fold and folding options
