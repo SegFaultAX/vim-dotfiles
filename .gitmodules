@@ -22,9 +22,6 @@
 [submodule "bundle/ack"]
 	path = bundle/ack
 	url = https://github.com/mileszs/ack.vim.git
-[submodule "bundle/gundo"]
-	path = bundle/gundo
-	url = https://github.com/sjl/gundo.vim.git
 [submodule "bundle/pydoc"]
 	path = bundle/pydoc
 	url = https://github.com/fs111/pydoc.vim.git
