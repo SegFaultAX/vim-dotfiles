@@ -157,6 +157,9 @@ au BufNewFile,BufRead *.mako set ft=mako
 " NERDTree
 map <F2> :NERDTreeToggle<cr>
 
+" NERDTree
+map <F4> :GundoToggle<CR>
+
 " Pyflakes (.py files only)
 let g:pyflakes_use_quickfix = 0
 
