@@ -132,6 +132,12 @@ map <leader>fc :FufChangeList<cr>
 map <leader>fj :FufJumpList<cr>
 map <leader>ft :FufTag<cr>
 
+" tComment
+map <leader>cc :TComment<cr>
+map <leader>cb :TCommentBlock<cr>
+map <leader>ci :TCommentInline<cr>
+map <leader>cr :TCommentRight<cr>
+
 " When pressing <leader>cd switch to the directory of the open buffer
 map <leader>cd :cd %:p:h<cr>
 
