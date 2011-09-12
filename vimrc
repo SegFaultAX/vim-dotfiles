@@ -168,12 +168,14 @@ au FileType python set omnifunc=pythoncomplete#Complete
 let g:SuperTabDefaultCompletionType = "context"
 set completeopt=menuone,longest,preview
 
+" Fixing styling in Gemfiles (not sure why this stopped working)
+autocmd BufRead,BufNewFile Gemfile set filetype=ruby
 " Ruby completion
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
 autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
-"improve autocomplete menu color
+" improve autocomplete menu color
 highlight Pmenu ctermbg=238 gui=bold
 
 " Task List
