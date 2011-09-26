@@ -73,3 +73,6 @@
 [submodule "bundle/sparkup"]
 	path = bundle/sparkup
 	url = https://github.com/bingaman/vim-sparkup.git
+[submodule "bundle/endwise"]
+	path = bundle/endwise
+	url = https://github.com/tpope/vim-endwise.git
