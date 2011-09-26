@@ -157,6 +157,9 @@ au BufNewFile,BufRead *.mako set ft=mako
 " NERDTree
 map <F2> :NERDTreeToggle<cr>
 
+" MRU (Most Recently Used)
+map <F3> :MRU<cr>
+
 " NERDTree
 map <F4> :GundoToggle<CR>
 
