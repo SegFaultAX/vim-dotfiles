@@ -8,6 +8,9 @@ filetype on
 " History
 set history=700
 
+" GUI font
+set guifont=Inconsolata\ Medium\ 12
+
 " Auto read if file is changed externally
 set autoread
 
