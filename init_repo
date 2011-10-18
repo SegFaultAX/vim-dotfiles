@@ -5,3 +5,12 @@ git submodule update
 
 git submodule foreach git submodule init
 git submodule foreach git submodule update
+
+# Install custom snippets
+cd ~/.vim/bundle/snippets/
+cp support_functions.vim ~/.vim/bundle/snipmate/plugin/
+rake deploy_local
+
+# Build command-t 
+cd ~/.vim/bundle/command-t/
+rake make
