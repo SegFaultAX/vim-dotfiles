@@ -50,6 +50,7 @@ set smartcase
 set hlsearch
 
 " Status line and user interface
+set laststatus=2
 set statusline=%F%m%r%h%w\ [TYPE=%Y\ %{&ff}]\ [%l/%L\ (%p%%)]\ %{fugitive#statusline()}
 set ruler "Always show current position
 set backspace=eol,start,indent
