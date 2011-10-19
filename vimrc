@@ -119,7 +119,9 @@ nmap gV `[v`]
 map <leader>ss :setlocal spell!<cr>
 
 " Clipboard yanking/pasting
-map <leader>y "+y
+vmap <leader>yy "+y
+vmap <leader>ya "ay
+vmap <leader>yz "zy
 map <leader>p "+p
 
 " Tab configuration
