@@ -118,6 +118,10 @@ nmap gV `[v`]
 " Toggle spell checking
 map <leader>ss :setlocal spell!<cr>
 
+" Clipboard yanking/pasting
+map <leader>y "+y
+map <leader>p "+p
+
 " Tab configuration
 map <leader>to :tabnew! %<cr>
 map <leader>te :tabedit 
