@@ -19,8 +19,9 @@ set autoread
 let mapleader = ","
 let g:mapleader = ","
 
-" Fast saving
+" Fast saving and closing
 nmap <leader>w :w!<cr>
+nmap <leader>q :q<cr>
 
 " Filetype plugin
 filetype plugin on
@@ -103,7 +104,7 @@ map <C-l> <C-W>l
 map <leader>bd :Bclose<cr>
 
 " Close all the buffers
-map <leader>ba :1,300 bd!<cr>
+map <leader>ba :NERDTreeClose<cr>:1,300 bd!<cr>
 
 " Use the arrows to something usefull
 map <right> :bn<cr>
