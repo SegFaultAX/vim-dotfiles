@@ -27,6 +27,9 @@ let g:mapleader = ","
 let g:autotagTagsFile=".project-ctags"
 set tags=tags,.project-ctags;/
 
+" Force Taglist to maintain current window size
+let Tlist_Inc_Winwidth=0
+
 " Fast saving and closing
 nmap <leader>w :w!<cr>
 nmap <leader>q :q<cr>
