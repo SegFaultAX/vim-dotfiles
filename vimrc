@@ -133,6 +133,9 @@ map <leader>tm :tabmove
 map <leader>tn :tabn<cr>
 map <leader>tp :tabp<cr>
 
+" Tag list
+map <leader>tl :TlistToggle<cr>
+
 " Fuzzy finder
 map <leader>fb :FufBuffer<cr>
 map <leader>ff :FufFile<cr>
