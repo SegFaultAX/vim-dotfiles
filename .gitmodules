@@ -97,6 +97,3 @@
 [submodule "bundle/taglist"]
 	path = bundle/taglist
 	url = https://github.com/vim-scripts/taglist.vim.git
-[submodule "bundle/autotag"]
-	path = bundle/autotag
-	url = https://github.com/vim-scripts/AutoTag.git

@@ -24,7 +24,6 @@ let g:mapleader = ","
 " globally ignored by git, for example: 
 " $ git config --global core.excludesfile ~/.gitignore
 " $ echo .project-ctags >> ~/.gitignore
-let g:autotagTagsFile=".project-ctags"
 set tags=tags,.project-ctags;/
 
 " Force Taglist to maintain current window size
