@@ -136,15 +136,18 @@ vmap <leader>yz "zy
 map <leader>p "+p
 
 " Tab configuration
-map <leader>to :tabnew! %<cr>
-map <leader>te :tabedit 
-map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove 
-map <leader>tn :tabn<cr>
-map <leader>tp :tabp<cr>
+" map <leader>to :tabnew! %<cr>
+" map <leader>te :tabedit 
+" map <leader>tc :tabclose<cr>
+" map <leader>tm :tabmove 
+" map <leader>tn :tabn<cr>
+" map <leader>tp :tabp<cr>
 
 " Tag list
-map <leader>tl :TlistToggle<cr>
+map <leader>lt :TlistToggle<cr>
+
+" Task List (TODO list)
+map <leader>ld <Plug>TaskList
 
 " Fuzzy finder
 map <leader>fb :FufBuffer<cr>
@@ -209,9 +212,6 @@ autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 " improve autocomplete menu color
 highlight Pmenu ctermbg=238 gui=bold
-
-" Task List
-map <leader>td <Plug>TaskList
 
 " Refactoring and go to definition
 map <leader>j :RopeGotoDefinition<CR>
