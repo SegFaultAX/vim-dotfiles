@@ -64,9 +64,6 @@
 [submodule "bundle/gundo"]
 	path = bundle/gundo
 	url = https://github.com/sjl/gundo.vim.git
-[submodule "bundle/matchit"]
-	path = bundle/matchit
-	url = https://github.com/mhz/vim-matchit.git
 [submodule "bundle/mru"]
 	path = bundle/mru
 	url = https://github.com/vim-scripts/mru.vim.git
