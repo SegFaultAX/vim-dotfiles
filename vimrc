@@ -26,9 +26,6 @@ let g:mapleader = ","
 " $ echo .project-ctags >> ~/.gitignore
 set tags=tags,.project-ctags;/
 
-" Force Taglist to maintain current window size
-let Tlist_Inc_Winwidth=0
-
 " Fast saving and closing
 nmap <leader>w :w!<cr>
 nmap <leader>q :q<cr>
@@ -192,9 +189,6 @@ map <F2> :NERDTreeToggle<cr>
 " MRU (Most Recently Used)
 map <F3> :MRU<cr>
 
-" NERDTree
-map <F4> :GundoToggle<CR>
-
 " Pyflakes (.py files only)
 let g:pyflakes_use_quickfix = 0
 
@@ -212,10 +206,6 @@ autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 " improve autocomplete menu color
 highlight Pmenu ctermbg=238 gui=bold
-
-" Refactoring and go to definition
-map <leader>j :RopeGotoDefinition<CR>
-map <leader>r :RopeRename<CR>
 
 " Delete trailing white space, useful for Python ;)
 func! DeleteTrailingWS()
