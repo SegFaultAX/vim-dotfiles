@@ -82,3 +82,6 @@
 [submodule "bundle/textobj-user"]
 	path = bundle/textobj-user
 	url = https://github.com/kana/vim-textobj-user.git
+[submodule "snippets"]
+	path = snippets
+	url = git://github.com/SegFaultAX/snipmate-snippets.git
