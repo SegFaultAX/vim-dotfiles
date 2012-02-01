@@ -85,3 +85,6 @@
 [submodule "snippets"]
 	path = snippets
 	url = git://github.com/SegFaultAX/snipmate-snippets.git
+[submodule "bundle/markdown"]
+	path = bundle/markdown
+	url = https://github.com/tpope/vim-markdown.git
