@@ -19,17 +19,6 @@ set autoread
 let mapleader = ","
 let g:mapleader = ","
 
-" Set the filename(s) to tags and .project-ctags and search up the directory
-" tree until a match is found, or root is reached. .project-ctags can be
-" globally ignored by git, for example: 
-" $ git config --global core.excludesfile ~/.gitignore
-" $ echo .project-ctags >> ~/.gitignore
-set tags=tags,.project-ctags;/
-
-" Fast saving and closing
-nmap <leader>w :w!<cr>
-nmap <leader>q :q<cr>
-
 " Filetype plugin
 filetype plugin on
 filetype indent on
@@ -50,6 +39,14 @@ set smarttab
 set tabstop=2
 set expandtab
 set shiftwidth=2
+
+" Wildmenu
+set wildmenu
+set wildmode=longest:full,full
+set wildignore+=*~,*.aux,tags
+
+" Tags
+set tags+=../tags,../../tags,../../../tags,../../../../tags
 
 " Searching
 set incsearch
