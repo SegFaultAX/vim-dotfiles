@@ -48,6 +48,8 @@ set wildignore+=*~,*.aux,tags
 " Tags
 set tags+=../tags,../../tags,../../../tags,../../../../tags
 
+set listchars=tab:▸\ ,eol:¬,trail:~
+
 " Searching
 set incsearch
 set ignorecase
@@ -97,6 +99,9 @@ map k gk
 
 " Map space to / (search) and c-space to ? (backgwards search)
 map <silent> <leader><cr> :noh<cr>
+
+" Show invisible characters
+map <leader>li :set list!<cr>
 
 " Smart way to move btw. windows
 map <C-j> <C-W>j
