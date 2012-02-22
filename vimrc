@@ -73,7 +73,7 @@ if has('gui_running')
   colorscheme molokai
 else
   set background=dark
-  colorscheme desert256
+  colorscheme evening
 endif
 syntax enable
 
