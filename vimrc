@@ -35,7 +35,7 @@ set nowrap
 set textwidth=80
 
 " Indenting
-set smartindent
+set cindent
 set autoindent
 
 set smarttab
