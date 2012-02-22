@@ -1,13 +1,55 @@
-#!/usr/bin/env sh
+#!/bin/sh
+# Copyright (c) 2012 Michael-Keith Bernard
+# 
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+# 
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+# 
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
 
-git submodule init
-git submodule update
+# Fail fast
+set -e
 
-git submodule foreach git submodule init
-git submodule foreach git submodule update
+# General directory settings
+CURRENT=`pwd`
+BUNDLE="${CURRENT}/bundle"
 
-cp ./snippets/support_functions.vim ./bundle/snipmate/plugin
+echo "Initializing vim-dotfiles, by Michael-Keith Bernard"
 
-# Build command-t 
-cd ~/.vim/bundle/command-t/
-rake make
+# Fetch all the submodules if we're in the root directory
+if [ -d $CURRENT/.git ]; then
+  echo "Running git-submodule commands..."
+  git submodule init
+  git submodule update
+
+  git submodule foreach git submodule init
+  git submodule foreach git submodule update
+fi
+
+# Remove snipmate/snippets directory
+if [ -d $BUNDLE/snipmate/snippets ]; then
+  echo "Removing snipmate/snippets directory..."
+  rm -rf $BUNDLE/snipmate/snippets
+fi
+
+# Build command-t
+if [ -d $BUNDLE/command-t ]; then
+  echo "Building Command-T..."
+  cd $BUNDLE/command-t
+  rake make
+  cd $CURRENT
+fi
+
+echo "Finished initializing vim-dotfiles."
