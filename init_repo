@@ -26,33 +26,63 @@ set -e
 CURRENT=`pwd`
 BUNDLE="${CURRENT}/bundle"
 
+# Section configuration
+SUBMODULE="yes"
+SNIPMATE="yes"
+COMMANDT="yes"
+
+usage() {
+  echo "Usage: init_repo"
+  echo "  --help - this menu"
+  echo "  --skip-submodule - don't load submodules"
+  echo "  --skip-snipmate - don't remote snipmate/snippets"
+  echo "  --skip-commandt - don't compile Command-T"
+  exit
+}
+
+for opt in "$@"
+do
+  case "$opt" in
+    --help) usage;;
+    --skip-submodule) SUBMODULE="no"; echo "Skipping submodule.";;
+    --skip-snipmate) SNIPMATE="no"; echo "Skipping snipmate.";;
+    --skip-commandt) COMMANDT="no"; echo "Skipping Command-T";;
+  esac
+done
+
 echo "Initializing vim-dotfiles, by Michael-Keith Bernard"
 
 # Fetch all the submodules if we're in the root directory
-if [ -d $CURRENT/.git ]; then
-  echo "Running git-submodule commands..."
-  git submodule init
-  git submodule update
+if [ "$SUBMODULE" = "yes" ]; then
+  if [ -d $CURRENT/.git ]; then
+    echo "Running git-submodule commands..."
+    git submodule init
+    git submodule update
 
-  git submodule foreach git submodule init
-  git submodule foreach git submodule update
-else
-  echo "Run this command from the root of the project."
-  exit 1
+    git submodule foreach git submodule init
+    git submodule foreach git submodule update
+  else
+    echo "Run this command from the root of the project."
+    exit 1
+  fi
 fi
 
 # Remove snipmate/snippets directory
-if [ -d $BUNDLE/snipmate/snippets ]; then
-  echo "Removing snipmate/snippets directory..."
-  rm -rf $BUNDLE/snipmate/snippets
+if [ "$SNIPMATE" = "yes" ]; then
+  if [ -d $BUNDLE/snipmate/snippets ]; then
+    echo "Removing snipmate/snippets directory..."
+    rm -rf $BUNDLE/snipmate/snippets
+  fi
 fi
 
 # Build command-t
-if [ -d $BUNDLE/command-t ]; then
-  echo "Building Command-T..."
-  cd $BUNDLE/command-t
-  rake make
-  cd $CURRENT
+if [ "$COMMANDT" = "yes" ]; then
+  if [ -d $BUNDLE/command-t ]; then
+    echo "Building Command-T..."
+    cd $BUNDLE/command-t
+    rake make
+    cd $CURRENT
+  fi
 fi
 
 echo "Finished initializing vim-dotfiles."
