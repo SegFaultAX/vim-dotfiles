@@ -56,3 +56,4 @@ if [ -d $BUNDLE/command-t ]; then
 fi
 
 echo "Finished initializing vim-dotfiles."
+echo "To symlink vimrc: ln -s ${HOME}/.vimrc ${CURRENT}/vimrc"
