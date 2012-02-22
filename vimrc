@@ -19,6 +19,9 @@ set autoread
 let mapleader = ","
 let g:mapleader = ","
 
+" Fast saving
+nmap <leader>w :w<cr>
+
 " Filetype plugin
 filetype plugin on
 filetype indent on
