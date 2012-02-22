@@ -118,7 +118,7 @@ map <leader>bd :Bclose<cr>
 " Close all the buffers
 map <leader>ba :NERDTreeClose<cr>:1,300 bd!<cr>
 
-" Use the arrows to something usefull
+" Use the arrows to do something useful
 map <right> :bn<cr>
 map <left> :bp<cr>
 
@@ -219,3 +219,6 @@ func! DeleteTrailingWS()
   exe "normal `z"
 endfunc
 autocmd BufWrite *.py :call DeleteTrailingWS()
+
+" Make vertical splits default to the right hand side:
+set spr
