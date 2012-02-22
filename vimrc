@@ -223,6 +223,9 @@ autocmd BufWrite *.py :call DeleteTrailingWS()
 " Make vertical splits default to the right hand side:
 set spr
 
-" This beauty remembers where you were the last time you edited the file, and
-" returns to the same position.
+" This beauty remembers where you were the last time you edited the file, and returns to the same position.
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
+
+" Xclip integration:
+vmap <F9> :!xclip -f -sel clip<CR> " copy text to xorg server clipboard
+map <F10> :-1r !xclip -o -sel clip<CR> " paste text from xserv clip to vim
