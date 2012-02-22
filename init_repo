@@ -36,6 +36,9 @@ if [ -d $CURRENT/.git ]; then
 
   git submodule foreach git submodule init
   git submodule foreach git submodule update
+else
+  echo "Run this command from the root of the project."
+  exit 1
 fi
 
 # Remove snipmate/snippets directory
