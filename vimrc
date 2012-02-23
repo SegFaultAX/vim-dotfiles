@@ -19,6 +19,9 @@ set autoread
 let mapleader = ","
 let g:mapleader = ","
 
+" Fast saving
+nmap <leader>w :w<cr>
+
 " Filetype plugin
 filetype plugin on
 filetype indent on
@@ -32,13 +35,13 @@ set nowrap
 set textwidth=80
 
 " Indenting
-set smartindent
+set cindent
 set autoindent
 
 set smarttab
-set tabstop=2
+set tabstop=4
 set expandtab
-set shiftwidth=2
+set shiftwidth=4
 
 " Wildmenu
 set wildmenu
@@ -70,7 +73,7 @@ if has('gui_running')
   colorscheme molokai
 else
   set background=dark
-  colorscheme desert256
+  colorscheme evening
 endif
 syntax enable
 
@@ -115,7 +118,7 @@ map <leader>bd :Bclose<cr>
 " Close all the buffers
 map <leader>ba :NERDTreeClose<cr>:1,300 bd!<cr>
 
-" Use the arrows to something usefull
+" Use the arrows to do something useful
 map <right> :bn<cr>
 map <left> :bp<cr>
 
@@ -216,3 +219,13 @@ func! DeleteTrailingWS()
   exe "normal `z"
 endfunc
 autocmd BufWrite *.py :call DeleteTrailingWS()
+
+" Make vertical splits default to the right hand side:
+set spr
+
+" This beauty remembers where you were the last time you edited the file, and returns to the same position.
+au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
+
+" Xclip integration:
+vmap <F9> :!xclip -f -sel clip<CR> " copy text to xorg server clipboard
+map <F10> :-1r !xclip -o -sel clip<CR> " paste text from xserv clip to vim
