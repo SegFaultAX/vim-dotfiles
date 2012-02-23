@@ -7,7 +7,6 @@ git submodule foreach git submodule init
 git submodule foreach git submodule update
 
 cp ./snippets/support_functions.vim ./bundle/snipmate/plugin
-rm -r ./bundle/snipmate/snippets
 
 # Build command-t 
 cd ~/.vim/bundle/command-t/
