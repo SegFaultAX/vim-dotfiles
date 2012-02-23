@@ -26,11 +26,17 @@ set -e
 CURRENT=`pwd`
 BUNDLE="$CURRENT/bundle"
 
+DATE=$(date +%d%m%Y)
+GIT_REPO="git://github.com/SegFaultAX/vim-dotfiles.git"
+GIT_BRANCH="segfaultax-$DATE"
+GIT_FETCH_SPEC="+refs/heads/master:refs/heads/$GIT_BRANCH"
+
 function usage() {
   echo "Usage: init_repo"
   echo "  --help - this menu"
-#  echo "  --update - update project files from maintainer"
+  echo "  --update - update project files from maintainer"
   echo "  --create-symlink - create a symlink of vimrc"
+  echo "  --clean-branches - remove all segfaultax-* branches"
   echo
   echo "  --skip-all - skip all steps"
   echo "  --skip-snipmate - don't remote snipmate/snippets"
@@ -86,8 +92,18 @@ function create_symlink() {
 }
 
 function update_project() {
-  # TODO: Implement update functionality
-  echo "Updating project."
+  echo "Fetching maintainer version to $GIT_BRANCH"
+  git fetch $GIT_REPO $GIT_FETCH_SPEC
+  echo
+  echo "You can now run 'git merge $GIT_BRANCH' from master"
+  echo "You may also want to run 'git submodule init && git submodule update'"
+  echo "You can remove the branch with 'git branch -D $GIT_BRANCH'"
+}
+
+function clean_branches() {
+  echo "Cleaning up branches that match refs/heads/segfaultax-*"
+  git for-each-ref --format="%(refname:short)" refs/heads/segfaultax-\* | \
+    xargs git branch -D
 }
 
 echo "Initializing vim-dotfiles, by Michael-Keith Bernard"
@@ -112,6 +128,11 @@ do
 
     --update)
       update_project
+      exit
+      ;;
+
+    --clean-branches)
+      clean_branches
       exit
       ;;
 
