@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Copyright (c) 2012 Michael-Keith Bernard
 # 
 # Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -26,34 +26,22 @@ set -e
 CURRENT=`pwd`
 BUNDLE="${CURRENT}/bundle"
 
-# Section configuration
-SUBMODULE="yes"
-SNIPMATE="yes"
-COMMANDT="yes"
-
-usage() {
+function usage() {
   echo "Usage: init_repo"
   echo "  --help - this menu"
-  echo "  --skip-submodule - don't load submodules"
+#  echo "  --update - update project files from maintainer"
+  echo "  --create-symlink - create a symlink of vimrc"
+  echo
+  echo "  --skip-all - skip all steps"
   echo "  --skip-snipmate - don't remote snipmate/snippets"
   echo "  --skip-commandt - don't compile Command-T"
+  echo "  --skip-submodule - don't load submodules"
+  echo
   exit
 }
 
-for opt in "$@"
-do
-  case "$opt" in
-    --help) usage;;
-    --skip-submodule) SUBMODULE="no"; echo "Skipping submodule.";;
-    --skip-snipmate) SNIPMATE="no"; echo "Skipping snipmate.";;
-    --skip-commandt) COMMANDT="no"; echo "Skipping Command-T";;
-  esac
-done
-
-echo "Initializing vim-dotfiles, by Michael-Keith Bernard"
-
-# Fetch all the submodules if we're in the root directory
-if [ "$SUBMODULE" = "yes" ]; then
+function submodule() {
+  # Fetch all the submodules if we're in the root directory
   if [ -d $CURRENT/.git ]; then
     echo "Running git-submodule commands..."
     git submodule init
@@ -65,25 +53,71 @@ if [ "$SUBMODULE" = "yes" ]; then
     echo "Run this command from the root of the project."
     exit 1
   fi
-fi
+}
 
-# Remove snipmate/snippets directory
-if [ "$SNIPMATE" = "yes" ]; then
+function snipmate() {
+  # Remove snipmate/snippets directory
   if [ -d $BUNDLE/snipmate/snippets ]; then
     echo "Removing snipmate/snippets directory..."
     rm -rf $BUNDLE/snipmate/snippets
   fi
-fi
+}
 
-# Build command-t
-if [ "$COMMANDT" = "yes" ]; then
+function commandt() {
+  # Build command-t
   if [ -d $BUNDLE/command-t ]; then
     echo "Building Command-T..."
     cd $BUNDLE/command-t
     rake make
     cd $CURRENT
   fi
-fi
+}
+
+function create_symlink() {
+  echo "Creating symlink for vimrc."
+  VIMRC=$HOME/.vimrc
+  if [ -e "$VIMRC" ]; then
+    echo "Backing up old ${VIMRC} to ${VIMRC}.old"
+    mv $VIMRC $VIMRC.old
+  fi
+  ln -s $CURRENT/vimrc $VIMRC
+  exit
+}
+
+function update_project() {
+  # TODO: Implement update functionality
+  echo "Updating project."
+  exit
+}
+
+echo "Initializing vim-dotfiles, by Michael-Keith Bernard"
+
+# Section configuration
+SUBMODULE="yes"
+SNIPMATE="yes"
+COMMANDT="yes"
+
+for opt in "$@"
+do
+  case "$opt" in
+    --help) usage;;
+    --create-symlink  ) create_symlink;;
+    --update          ) update_project;;
+
+    --skip-submodule  ) SUBMODULE="no"; echo "Skipping submodule.";;
+    --skip-SNIPMATE   ) SNIPMATE="no"; echo "Skipping snipmate.";;
+    --skip-commandt   ) COMMANDT="no"; echo "Skipping Command-T.";;
+
+    --skip-all        ) SUBMODULE="no"
+                        SNIPMATE="no"
+                        COMMANDT="no"
+                        ;;
+  esac
+done
+
+if [ "$SUBMODULE" = "yes" ]; then submodule; fi
+if [ "$SNIPMATE" = "yes" ]; then snipmate; fi
+if [ "$COMMANDT" = "yes" ]; then commandt; fi
 
 echo "Finished initializing vim-dotfiles."
-echo "To symlink vimrc: ln -s ${HOME}/.vimrc ${CURRENT}/vimrc"
+echo "Run '$0 --create-symlink' to symlink my vimrc."
