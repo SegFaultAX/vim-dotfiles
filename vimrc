@@ -5,9 +5,6 @@ call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 filetype on
 
-" History
-set history=700
-
 " GUI font
 set guifont=Liberation\ Mono\ 10
 
@@ -67,6 +64,11 @@ set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
 set showmatch
 
+" viminfo and history
+" history is used for /,:,@
+set history=50
+set viminfo='100,f1,<50,!,h,s10
+
 " Colors
 set t_Co=256
 if has('gui_running')
@@ -111,6 +113,9 @@ map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
+
+" Simple underline
+map <leader>uu mzyypv$r-`z
 
 " Close the current buffer
 map <leader>bd :Bclose<cr>
