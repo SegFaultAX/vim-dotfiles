@@ -32,20 +32,21 @@ GIT_BRANCH="segfaultax-$DATE"
 GIT_FETCH_SPEC="+refs/heads/master:refs/heads/$GIT_BRANCH"
 
 function usage() {
-  echo "Usage: init_repo"
-  echo "  --help - this menu"
-  echo "  --update - update project files from maintainer"
-  echo "  --create-symlink - create a symlink of vimrc"
-  echo "  --clean-branches - remove all segfaultax-* branches"
+  echo "Usage: $0"
+  echo "  --help - this help menu"
+  echo "  --fetch-vimrc - download maintainers repo"
+  echo "  --create-symlink - symlink $CURRENT/vimrc to ~/.vimrc"
+  echo "  --update-submodules - fetch newest submodule versions"
+  echo "  --clean-branches - remove all maintainer repo branches"
   echo
-  echo "  --skip-all - skip all steps"
-  echo "  --skip-snipmate - don't remote snipmate/snippets"
-  echo "  --skip-commandt - don't compile Command-T"
-  echo "  --skip-submodule - don't load submodules"
+  echo "  --init - initialize submodules, build Command-T, and clean Snipmate"
+  echo "  --init-commandt - build Command-T"
+  echo "  --init-snipmate - clean Snipmate"
+  echo "  --init-submodules - initialize submodules"
   echo
 }
 
-function submodule() {
+function init_submodules() {
   # Fetch all the submodules if we're in the root directory
   if [ -d $CURRENT/.git ]; then
     echo "Running git-submodule commands..."
@@ -60,7 +61,7 @@ function submodule() {
   fi
 }
 
-function snipmate() {
+function init_snipmate() {
   # Remove snipmate/snippets directory
   if [ -d $BUNDLE/snipmate/snippets ]; then
     echo "Removing snipmate/snippets directory..."
@@ -68,13 +69,20 @@ function snipmate() {
   fi
 }
 
-function commandt() {
+function init_commandt() {
   # Build command-t
   if [ -d $BUNDLE/command-t ]; then
     echo "Building Command-T..."
     cd $BUNDLE/command-t
     rake make
     cd $CURRENT
+  fi
+}
+
+function update_submodules() {
+  if [ -d $CURRENT/.git ]; then
+    echo "Updating all submodules..."
+    git submodule foreach git pull origin master
   fi
 }
 
@@ -91,7 +99,7 @@ function create_symlink() {
   ln -s $CURRENT/vimrc $VIMRC
 }
 
-function update_project() {
+function fetch_vimrc() {
   echo "Fetching maintainer version to $GIT_BRANCH"
   git fetch $GIT_REPO $GIT_FETCH_SPEC
   echo
@@ -106,65 +114,45 @@ function clean_branches() {
     xargs git branch -D
 }
 
-echo "Initializing vim-dotfiles, by Michael-Keith Bernard"
+echo "Manager by Michael-Keith Bernard"
 
 # Section configuration
-SUBMODULE="yes"
-SNIPMATE="yes"
-COMMANDT="yes"
+vimrc=
+symlink=
+submodules=
+clean=
 
-for opt in "$@"
-do
+init_commandt=
+init_snipmate=
+init_submodules=
+
+if [ "$#" -eq 0 ]; then usage; fi
+
+while [ "$#" -gt 0 ]; do
+  opt="$1"
+  shift
   case "$opt" in
-    --help) 
-      usage
-      exit
-      ;;
+    --help) usage; exit;;
+    --fetch-vimrc) vimrc="yes";;
+    --create-symlink) symlink="yes";;
+    --update-submodules) submodules="yes";;
+    --clean-branches) clean="yes";;
 
-    --create-symlink) 
-      create_symlink
-      exit
+    --init) init_commandt="yes"
+      init_snipmate="yes"
+      init_submodules="yes"
       ;;
-
-    --update)
-      update_project
-      exit
-      ;;
-
-    --clean-branches)
-      clean_branches
-      exit
-      ;;
-
-    --skip-submodule) 
-      SUBMODULE="no";
-      echo "Skipping submodule."
-      ;;
-
-    --skip-SNIPMATE) 
-      SNIPMATE="no"
-      echo "Skipping snipmate."
-      ;;
-
-    --skip-commandt) 
-      COMMANDT="no" 
-      echo "Skipping Command-T."
-      ;;
-
-    --skip-all) 
-      SUBMODULE="no"
-      SNIPMATE="no"
-      COMMANDT="no"
-      ;;
-
-    *)
-      echo "Unknown option $opt"
+    --init-commandt) init_commandt="yes";;
+    --init-snipmate) init_snipmate="yes";;
+    --init-submodules) init_submodules="yes";;
   esac
 done
 
-if [ "$SUBMODULE" = "yes" ]; then submodule; fi
-if [ "$SNIPMATE" = "yes" ]; then snipmate; fi
-if [ "$COMMANDT" = "yes" ]; then commandt; fi
+if [ "$vimrc" = "yes" ]; then fetch_vimrc; fi
+if [ "$symlink" = "yes" ]; then create_symlink; fi
+if [ "$submodules" = "yes" ]; then update_submodules; fi
+if [ "$clean" = "yes" ]; then clean_branches; fi
 
-echo "Finished initializing vim-dotfiles."
-echo "Run '$0 --create-symlink' to symlink my vimrc."
+if [ "$init_snipmate" = "yes" ]; then init_snipmate; fi
+if [ "$init_commandt" = "yes" ]; then init_commandt; fi
+if [ "$init_submodules" = "yes" ]; then init_submodules; fi
