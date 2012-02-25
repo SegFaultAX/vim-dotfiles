@@ -7,8 +7,8 @@
 
 *   Clone the repository: `$ git clone git://github.com/SegFaultAX/vim-dotfiles.git ~/.vim`
 *   Move into the new .vim directory: `$ cd ~/.vim`
-*   Run the provided initialization script: `$ ./init_repo`
-*   Symlink your vimrc: `$ ./init_repo --create-symlink`
+*   Run the provided initialization script: `$ ./manager --init`
+*   Symlink your vimrc: `$ ./manager --create-symlink`
 
 **Important**: The `--create-symlink` option will automatically backup your
 ~/.vimrc if one exists.
@@ -18,46 +18,50 @@ If you built vim yourself, be sure to include `--enable-pythoninterp` and
 `--enable-rubyinterp` during configuration. If you're not sure if vim was built
 with Ruby and Python support, you can use `vim --version` to check.
 
-## The "init_repo" Script
+**Note**: If you choose to fork this repo, you can fetch my current master
+version using the `--fetch-vimrc` command in manager.
 
-  The `init_repo` script makes staying up to date with this repository a breeze.
-  First, check out the output from `init_repo --help`:
+## The "manager" Script
+
+  The `manager` script makes staying up to date with this repository a breeze.
+  First, check out the output from `manager --help`:
 
 ```bash
-$ ./init_repo --help
-Initializing vim-dotfiles, by Michael-Keith Bernard
-Usage: init_repo
-  --help - this menu
-  --update - update project files from maintainer
-  --create-symlink - create a symlink of vimrc
-  --clean-branches - remove all segfaultax-* branches
+$ ./manager
+Manager by Michael-Keith Bernard
+Usage: ./manager
+  --help - this help menu
+  --fetch-vimrc - download maintainers repo
+  --create-symlink - symlink /home/mkbernard/.vim/vimrc to ~/.vimrc
+  --update-submodules - fetch newest submodule versions
+  --clean-branches - remove all maintainer repo branches
 
-  --skip-all - skip all steps
-  --skip-snipmate - don't remote snipmate/snippets
-  --skip-commandt - don't compile Command-T
-  --skip-submodule - don't load submodules
+  --init - initialize submodules, build Command-T, and clean Snipmate
+  --init-commandt - build Command-T
+  --init-snipmate - clean Snipmate
+  --init-submodules - initialize submodules
 ```
 
-  Simply running `./init_repo` from the project root will, by default,
+  Simply running `./manager --init` from the project root will, by default,
   initialize and update any submodules, build Command-T, and remove the
   snipmate/snippets directory (there is a replacement snippets submodule in the
-  root of this project). You can skip any of the above steps with the
-  appropriate `--skip-<step>` command.
+  root of this project). If you'd like to run any of these commands
+  individually, use the available `--init-X` commands.
 
 ### Staying up-to-date
 
   To quickly fetch any changes from this repository, simply run:
 
 ```bash
-$ ./init_repo --update
-Initializing vim-dotfiles, by Michael-Keith Bernard
-Fetching maintainer version to segfaultax-22022012
+$ ./manager --fetch-vimrc
+Manager by Michael-Keith Bernard
+Fetching maintainer version to segfaultax-25022012
 From git://github.com/SegFaultAX/vim-dotfiles
- * [new branch]      master     -> segfaultax-22022012
+ * [new branch]      master     -> segfaultax-25022012
 
-You can now run 'git merge segfaultax-22022012' from master
+You can now run 'git merge segfaultax-25022012' from master
 You may also want to run 'git submodule init && git submodule update'
-You can remove the branch with 'git branch -D segfaultax-22022012'
+You can remove the branch with 'git branch -D segfaultax-25022012'
 ```
 
   As you can see it fetches update from SegFaultAX/vim-dotfiles on GitHub into a
@@ -75,15 +79,14 @@ $ git branch -D segfaultax-22022012
   branches automatically:
 
 ```bash
-$ ./init_repo --clean-branches
+$ ./manager --clean-branches
 ```
 
 ## Contributing
 
   I encourage you to submit patches or modifications to my vimrc or the list of
-  submodules provided in this project. As long as they don't break my programmed
-  muscle memory, I'd be happy to integrate just about any nifty new feature,
-  command, or plugin.
+  submodules provided in this project. Make sure to rebase your changes onto my
+  master branch and squash intermediate commits before issuing a pull request.
 
   **Active Contributors**:
 
