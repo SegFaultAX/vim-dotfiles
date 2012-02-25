@@ -145,6 +145,7 @@ while [ "$#" -gt 0 ]; do
     --init-commandt) init_commandt="yes";;
     --init-snipmate) init_snipmate="yes";;
     --init-submodules) init_submodules="yes";;
+    *) echo "Unknown option $opt"; exit 1;;
   esac
 done
 
