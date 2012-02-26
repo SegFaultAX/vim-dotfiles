@@ -82,6 +82,7 @@ function init_commandt() {
 function update_submodules() {
   if [ -d $CURRENT/.git ]; then
     echo "Updating all submodules..."
+    init_submodules
     git submodule foreach git pull origin master
   fi
 }
