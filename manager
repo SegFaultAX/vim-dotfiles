@@ -154,6 +154,6 @@ if [ "$symlink" = "yes" ]; then create_symlink; fi
 if [ "$submodules" = "yes" ]; then update_submodules; fi
 if [ "$clean" = "yes" ]; then clean_branches; fi
 
+if [ "$init_submodules" = "yes" ]; then init_submodules; fi
 if [ "$init_snipmate" = "yes" ]; then init_snipmate; fi
 if [ "$init_commandt" = "yes" ]; then init_commandt; fi
-if [ "$init_submodules" = "yes" ]; then init_submodules; fi
