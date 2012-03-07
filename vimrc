@@ -118,7 +118,7 @@ map <C-l> <C-W>l
 map <leader>uu mzyypv$r-`z
 
 " Close the current buffer
-map <leader>bd :Bclose<cr>
+map <leader>bd :bd<cr>
 
 " Close all the buffers
 map <leader>ba :NERDTreeClose<cr>:1,300 bd!<cr>
