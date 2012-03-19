@@ -50,11 +50,7 @@ function init_submodules() {
   # Fetch all the submodules if we're in the root directory
   if [ -d $CURRENT/.git ]; then
     echo "Running git-submodule commands..."
-    git submodule init
-    git submodule update
-
-    git submodule foreach git submodule init
-    git submodule foreach git submodule update
+    git submodule update --init --recursive
   else
     echo "Run this command from the root of the project."
     exit 1
