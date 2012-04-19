@@ -94,3 +94,9 @@
 [submodule "bundle/tabular"]
 	path = bundle/tabular
 	url = git://github.com/godlygeek/tabular.git
+[submodule "bundle/delimitmate"]
+	path = bundle/delimitmate
+	url = git://github.com/Raimondi/delimitMate.git
+[submodule "bundle/matchit"]
+	path = bundle/matchit
+	url = git://github.com/vim-scripts/matchit.zip.git
