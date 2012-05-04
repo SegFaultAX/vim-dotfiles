@@ -151,7 +151,8 @@ map <leader>p "+p
 " map <leader>tp :tabp<cr>
 
 " Tag list
-map <leader>lt :TlistToggle<cr>
+map <F8> :!/usr/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+map <F4> :TlistToggle<cr>
 
 " Task List (TODO list)
 map <leader>ld <Plug>TaskList
@@ -201,6 +202,10 @@ map <F3> :MRU<cr>
 
 " Pyflakes (.py files only)
 let g:pyflakes_use_quickfix = 0
+
+" Taglist configuration
+let Tlist_Ctags_Cmd = "/usr/local/bin/ctags"
+let Tlist_WinWidth = 50
 
 " Tab completion and documentation
 au FileType python set omnifunc=pythoncomplete#Complete
