@@ -5,8 +5,17 @@ call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 filetype on
 
-" GUI font
-set guifont=Liberation\ Mono\ 10
+if exists("&guifont")
+  if has("mac")
+    set guifont=Monaco:h11
+  elseif has("unix")
+    if &guifont == ""
+      set guifont=Liberation\ Mono\ 10
+    endif
+  elseif has("win32")
+    set guifont=Consolas:h11,Courier\ New:h10
+  endif
+endif
 
 " Auto read if file is changed externally
 set autoread
