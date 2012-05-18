@@ -7,7 +7,7 @@ filetype on
 
 if exists("&guifont")
   if has("mac")
-    set guifont=Monaco:h11
+    set guifont=Andale\ Mono:h12
   elseif has("unix")
     if &guifont == ""
       set guifont=Liberation\ Mono\ 10
