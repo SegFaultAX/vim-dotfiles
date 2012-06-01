@@ -103,3 +103,6 @@
 [submodule "bundle/taglist"]
 	path = bundle/taglist
 	url = git://github.com/vim-scripts/taglist.vim.git
+[submodule "bundle/vimerl"]
+	path = bundle/vimerl
+	url = git://github.com/jimenezrick/vimerl.git
