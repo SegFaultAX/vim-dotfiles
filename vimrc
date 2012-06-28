@@ -160,7 +160,7 @@ map <leader>p "+p
 " map <leader>tp :tabp<cr>
 
 " Tag list
-map <F8> :!/usr/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+map <F8> :!/usr/local/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 map <F4> :TlistToggle<cr>
 
 " Task List (TODO list)
@@ -238,6 +238,7 @@ func! DeleteTrailingWS()
   exe "normal `z"
 endfunc
 autocmd BufWrite *.py :call DeleteTrailingWS()
+autocmd BufWrite *.lua :call DeleteTrailingWS()
 
 if exists(":Tabularize")
   nmap <Leader>a= :Tabularize /=<CR>
@@ -246,6 +247,14 @@ if exists(":Tabularize")
   vmap <Leader>a: :Tabularize /:\zs<CR>
 endif
 
+function! g:ToggleNuMode()
+  if (&rnu == 1)
+    set nu
+  else
+    set rnu
+  endif
+endfunction
+nnoremap <silent> <leader>n :call g:ToggleNuMode()<cr>
 
 " Make vertical splits default to the right hand side:
 set spr
