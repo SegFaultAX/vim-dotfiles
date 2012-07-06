@@ -106,3 +106,6 @@
 [submodule "bundle/vimerl"]
 	path = bundle/vimerl
 	url = git://github.com/jimenezrick/vimerl.git
+[submodule "bundle/vimclojure"]
+	path = bundle/vimclojure
+	url = git://github.com/vim-scripts/VimClojure.git
