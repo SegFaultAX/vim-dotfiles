@@ -24,6 +24,7 @@ set autoread
 " like <leader>w saves the current file
 let mapleader = ","
 let g:mapleader = ","
+let vimclojure#FuzzyIndent = 1
 
 " Fast saving
 nmap <leader>w :w<cr>
