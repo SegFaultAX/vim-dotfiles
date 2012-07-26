@@ -31,6 +31,14 @@ let vimclojure#WantNailgun = 1
 let g:vimclojure#HighlightBuiltins = 1
 let g:vimclojure#ParenRainbow = 1
 
+" (see :help ft-python-indent)
+" Indent after an open paren: >
+let g:pyindent_open_paren = '&sw'
+" Indent after a nested paren: >
+let g:pyindent_nested_paren = '&sw'
+" Indent for a continuation line: >
+let g:pyindent_continue = '&sw'
+
 " Fast saving
 nmap <leader>w :w<cr>
 
