@@ -167,9 +167,9 @@ map <leader>p "+p
 
 " Tab configuration
 " map <leader>to :tabnew! %<cr>
-" map <leader>te :tabedit 
+" map <leader>te :tabedit
 " map <leader>tc :tabclose<cr>
-" map <leader>tm :tabmove 
+" map <leader>tm :tabmove
 " map <leader>tn :tabn<cr>
 " map <leader>tp :tabp<cr>
 
@@ -251,8 +251,12 @@ func! DeleteTrailingWS()
   %s/\s\+$//ge
   exe "normal `z"
 endfunc
+nnoremap <silent> <Leader>cl :call DeleteTrailingWS()<CR>
+
 autocmd BufWrite *.py :call DeleteTrailingWS()
+autocmd BufWrite *.rb :call DeleteTrailingWS()
 autocmd BufWrite *.lua :call DeleteTrailingWS()
+
 
 if exists(":Tabularize")
   nmap <Leader>a= :Tabularize /=<CR>
