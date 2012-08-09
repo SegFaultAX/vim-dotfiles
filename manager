@@ -63,6 +63,8 @@ function init_snipmate() {
     echo "Removing snipmate/snippets directory..."
     rm -rf $BUNDLE/snipmate/snippets
   fi
+  echo "Copying support functions..."
+  cp -f snippets/support_functions.vim bundle/snipmate/plugin/
 }
 
 function init_commandt() {
