@@ -109,3 +109,6 @@
 [submodule "bundle/vimclojure"]
 	path = bundle/vimclojure
 	url = git://github.com/vim-scripts/VimClojure.git
+[submodule "bundle/web-indent"]
+	path = bundle/web-indent
+	url = git://github.com/lukaszb/vim-web-indent.git
