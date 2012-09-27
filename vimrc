@@ -1,7 +1,7 @@
 " Load pathogen and its submodules
 " Filetype has to be off when pathogen is first run
 filetype off
-call pathogen#runtime_append_all_bundles()
+call pathogen#infect()
 call pathogen#helptags()
 filetype on
 
