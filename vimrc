@@ -27,7 +27,7 @@ let g:mapleader = ","
 
 " VimClojure configuration
 let vimclojure#FuzzyIndent = 1
-let vimclojure#WantNailgun = 1
+let vimclojure#WantNailgun = 0
 let g:vimclojure#HighlightBuiltins = 1
 let g:vimclojure#ParenRainbow = 1
 
