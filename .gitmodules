@@ -100,3 +100,9 @@
 [submodule "bundle/paredit"]
 	path = bundle/paredit
 	url = git://github.com/vim-scripts/paredit.vim.git
+[submodule "bundle/clojure-static"]
+	path = bundle/clojure-static
+	url = git@github.com:guns/vim-clojure-static.git
+[submodule "bundle/rainbow_parentheses"]
+	path = bundle/rainbow_parentheses
+	url = git@github.com:kien/rainbow_parentheses.vim.git
