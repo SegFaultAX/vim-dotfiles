@@ -97,9 +97,6 @@
 [submodule "bundle/web-indent"]
 	path = bundle/web-indent
 	url = git://github.com/lukaszb/vim-web-indent.git
-[submodule "bundle/paredit"]
-	path = bundle/paredit
-	url = git://github.com/vim-scripts/paredit.vim.git
 [submodule "bundle/clojure-static"]
 	path = bundle/clojure-static
 	url = git://github.com/guns/vim-clojure-static.git 
