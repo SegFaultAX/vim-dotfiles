@@ -39,6 +39,9 @@ let g:pyindent_nested_paren = '&sw'
 " Indent for a continuation line: >
 let g:pyindent_continue = '&sw'
 
+" Disable paredit by default
+let g:paredit_mode = 0
+
 " Fast saving
 nmap <leader>w :w<cr>
 
