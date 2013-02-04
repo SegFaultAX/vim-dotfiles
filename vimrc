@@ -25,12 +25,6 @@ set autoread
 let mapleader = ","
 let g:mapleader = ","
 
-" VimClojure configuration
-let vimclojure#FuzzyIndent = 1
-let vimclojure#WantNailgun = 0
-let g:vimclojure#HighlightBuiltins = 1
-let g:vimclojure#ParenRainbow = 1
-
 " (see :help ft-python-indent)
 " Indent after an open paren: >
 let g:pyindent_open_paren = '&sw'
