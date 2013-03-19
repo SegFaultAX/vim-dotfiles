@@ -310,3 +310,7 @@ function! AppendModeline()
   call append(line("$"), l:modeline)
 endfunction
 nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
+
+if has("mac")
+  set clipboard=unnamed
+endif
