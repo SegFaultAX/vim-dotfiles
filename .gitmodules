@@ -100,9 +100,6 @@
 [submodule "bundle/rainbow_parentheses"]
 	path = bundle/rainbow_parentheses
 	url = git://github.com/kien/rainbow_parentheses.vim.git
-[submodule "bundle/foreplay"]
-	path = bundle/foreplay
-	url = git://github.com/tpope/vim-foreplay.git
 [submodule "bundle/ctrlp"]
 	path = bundle/ctrlp
 	url = git://github.com/kien/ctrlp.vim.git
