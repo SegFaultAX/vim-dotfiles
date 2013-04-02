@@ -106,3 +106,6 @@
 [submodule "bundle/fireplace"]
 	path = bundle/fireplace
 	url = git://github.com/tpope/vim-fireplace.git
+[submodule "bundle/classpath"]
+	path = bundle/classpath
+	url = git://github.com/tpope/vim-classpath.git
