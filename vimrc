@@ -5,25 +5,16 @@ call pathogen#infect()
 call pathogen#helptags()
 filetype on
 
-if exists("&guifont")
-  if has("mac")
-    set guifont=Andale\ Mono:h12
-  elseif has("unix")
-    if &guifont == ""
-      set guifont=Liberation\ Mono\ 10
-    endif
-  elseif has("win32")
-    set guifont=Consolas:h11,Courier\ New:h10
-  endif
-endif
+" Filetype plugin
+filetype plugin on
+filetype indent on
 
-" Auto read if file is changed externally
-set autoread
+syntax enable
+highlight Pmenu ctermbg=238 gui=bold
 
-" With a map leader it's possible to do extra key combinations
-" like <leader>w saves the current file
-let mapleader = ","
-let g:mapleader = ","
+"""""""""""""
+" Variables "
+"""""""""""""
 
 " (see :help ft-python-indent)
 " Indent after an open paren: >
@@ -36,16 +27,37 @@ let g:pyindent_continue = '&sw'
 " Disable paredit by default
 let g:paredit_mode = 0
 
-" Fast saving
-nmap <leader>w :w<cr>
+" Python stuff
+let python_highlight_all = 1
 
-" Filetype plugin
-filetype plugin on
-filetype indent on
+" Pyflakes (.py files only)
+let g:pyflakes_use_quickfix = 0
+
+" Taglist configuration
+let Tlist_Ctags_Cmd = "/usr/local/bin/ctags"
+let Tlist_WinWidth = 50
+
+let g:SuperTabDefaultCompletionType = "context"
+
+" With a map leader it's possible to do extra key combinations
+" like <leader>w saves the current file
+let mapleader = ","
+let g:mapleader = ","
+
+""""""""""""
+" Settings "
+""""""""""""
+
+" Auto read if file is changed externally
+set autoread
 
 set nocompatible
 set bs=2
 set number
+
+set spr
+
+set completeopt=menuone,longest,preview
 
 " Word wrapping - on, col 80
 set nowrap
@@ -91,16 +103,7 @@ set viminfo='100,f1,<50,!,h,s10
 
 " Colors
 set t_Co=256
-if has('gui_running')
-  colorscheme molokai
-else
-  set background=dark
-  colorscheme desert256
-endif
-syntax enable
 
-" Space toggle fold and folding options
-nnoremap <space> za
 set foldmethod=indent
 set foldlevel=99
 
@@ -109,6 +112,16 @@ set bufhidden=hide
 
 " 3 lines of buffer offset
 set scrolloff=3
+
+""""""""""""
+" Mappings "
+""""""""""""
+
+" Fast saving
+nmap <leader>w :w<CR>
+
+" Space toggle fold and folding options
+nnoremap <space> za
 
 " Bash like keys for the command line
 cnoremap <C-A>		<Home>
@@ -123,10 +136,10 @@ map j gj
 map k gk
 
 " Map space to / (search) and c-space to ? (backgwards search)
-map <silent> <leader><cr> :noh<cr>
+map <silent> <leader><CR> :noh<CR>
 
 " Show invisible characters
-map <leader>li :set list!<cr>
+map <leader>li :set list!<CR>
 
 " Smart way to move btw. windows
 map <C-j> <C-W>j
@@ -138,14 +151,14 @@ map <C-l> <C-W>l
 map <leader>uu mzyypv$r-`z
 
 " Close the current buffer
-map <leader>bd :bd<cr>
+map <leader>bd :bd<CR>
 
 " Close all the buffers
-map <leader>ba :NERDTreeClose<cr>:1,300 bd!<cr>
+map <leader>ba :NERDTreeClose<CR>:1,300 bd!<CR>
 
 " Use the arrows to do something useful
-map <right> :bn<cr>
-map <left> :bp<cr>
+map <right> :bn<CR>
+map <left> :bp<CR>
 
 " Remap vim 0
 map 0 ^
@@ -154,7 +167,7 @@ map 0 ^
 nmap gV `[v`]
 
 " Toggle spell checking
-map <leader>ss :setlocal spell!<cr>
+map <leader>ss :setlocal spell!<CR>
 
 " Clipboard yanking/pasting
 vmap <leader>yy "+y
@@ -163,35 +176,35 @@ vmap <leader>yz "zy
 map <leader>p "+p
 
 " Tab configuration
-" map <leader>to :tabnew! %<cr>
+" map <leader>to :tabnew! %<CR>
 " map <leader>te :tabedit
-" map <leader>tc :tabclose<cr>
+" map <leader>tc :tabclose<CR>
 " map <leader>tm :tabmove
-" map <leader>tn :tabn<cr>
-" map <leader>tp :tabp<cr>
+" map <leader>tn :tabn<CR>
+" map <leader>tp :tabp<CR>
 
 " Tag list
 map <F8> :!/usr/local/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
-map <F4> :TlistToggle<cr>
+map <F4> :TlistToggle<CR>
 
 " Task List (TODO list)
 map <leader>ld <Plug>TaskList
 
 " Fuzzy finder
-map <leader>fb :FufBuffer<cr>
-map <leader>ff :FufFile<cr>
-map <leader>fd :FufDir<cr>
-map <leader>fl :FufLine<cr>
-map <leader>fh :FufHelp<cr>
-map <leader>fc :FufChangeList<cr>
-map <leader>fj :FufJumpList<cr>
-map <leader>ft :FufTag<cr>
+map <leader>fb :FufBuffer<CR>
+map <leader>ff :FufFile<CR>
+map <leader>fd :FufDir<CR>
+map <leader>fl :FufLine<CR>
+map <leader>fh :FufHelp<CR>
+map <leader>fc :FufChangeList<CR>
+map <leader>fj :FufJumpList<CR>
+map <leader>ft :FufTag<CR>
 
 " tComment
-map <leader>cc :TComment<cr>
-map <leader>cb :TCommentBlock<cr>
-map <leader>ci :TCommentInline<cr>
-map <leader>cr :TCommentRight<cr>
+map <leader>cc :TComment<CR>
+map <leader>cb :TCommentBlock<CR>
+map <leader>ci :TCommentInline<CR>
+map <leader>cr :TCommentRight<CR>
 
 " CamelCaseMotion
 map <silent> <S-W> <Plug>CamelCaseMotion_w
@@ -199,16 +212,58 @@ map <silent> <S-B> <Plug>CamelCaseMotion_b
 map <silent> <S-E> <Plug>CamelCaseMotion_e
 
 " When pressing <leader>cd switch to the directory of the open buffer
-map <leader>cd :cd %:p:h<cr>
+map <leader>cd :cd %:p:h<CR>
 
 "Move a line of text using ALT+[jk] or Comamnd+[jk] on mac
-nmap <M-j> mz:m+<cr>`z
-nmap <M-k> mz:m-2<cr>`z
-vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
-vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
+nmap <M-j> mz:m+<CR>`z
+nmap <M-k> mz:m-2<CR>`z
+vmap <M-j> :m'>+<CR>`<my`>mzgv`yo`z
+vmap <M-k> :m'<-2<CR>`>my`<mzgv`yo`z
 
-" Python stuff
-let python_highlight_all = 1
+" NERDTree
+map <F2> :NERDTreeToggle<CR>
+
+" MRU (Most Recently Used)
+map <F3> :MRU<CR>
+
+nnoremap <silent> <Leader>cl :call DeleteTrailingWS()<CR>
+nnoremap <silent> <leader>n :call g:ToggleNuMode()<CR>
+nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
+
+" Xclip integration:
+vmap <F9> :!xclip -f -sel clip<CR> " copy text to xorg server clipboard
+map <F10> :-1r !xclip -o -sel clip<CR> " paste text from xserv clip to vim
+
+nnoremap <silent> <leader>ev :vs $MYVIMRC<CR>
+nnoremap <silent> <leader>sv :source $MYVIMRC<CR>
+
+""""""""""""""
+" GUI Config "
+""""""""""""""
+
+if has('gui_running')
+  colorscheme molokai
+else
+  set background=dark
+  colorscheme desert256
+endif
+
+if exists("&guifont")
+  if has("mac")
+    set guifont=Andale\ Mono:h12
+  elseif has("unix")
+    if &guifont == ""
+      set guifont=Liberation\ Mono\ 10
+    endif
+  elseif has("win32")
+    set guifont=Consolas:h11,Courier\ New:h10
+  endif
+endif
+
+"""""""""""""""""
+" Auto Commands "
+"""""""""""""""""
+
 au FileType python syn keyword pythonDecorator True None False self
 
 au BufNewFile,BufRead *.jinja set syntax=htmljinja
@@ -220,23 +275,8 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
-" NERDTree
-map <F2> :NERDTreeToggle<cr>
-
-" MRU (Most Recently Used)
-map <F3> :MRU<cr>
-
-" Pyflakes (.py files only)
-let g:pyflakes_use_quickfix = 0
-
-" Taglist configuration
-let Tlist_Ctags_Cmd = "/usr/local/bin/ctags"
-let Tlist_WinWidth = 50
-
 " Tab completion and documentation
 au FileType python set omnifunc=pythoncomplete#Complete
-let g:SuperTabDefaultCompletionType = "context"
-set completeopt=menuone,longest,preview
 
 " Fixing styling in Gemfiles (not sure why this stopped working)
 autocmd BufRead,BufNewFile Gemfile set filetype=ruby
@@ -258,8 +298,12 @@ autocmd FileType ruby
 autocmd User Bundler
       \ if &makeprg !~# 'bundle' | setl makeprg^=bundle\ exec\  | endif
 
-" improve autocomplete menu color
-highlight Pmenu ctermbg=238 gui=bold
+" This beauty remembers where you were the last time you edited the file, and returns to the same position.
+au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
+
+""""""""""""""""""
+" Misc Functions "
+""""""""""""""""""
 
 " Delete trailing white space, useful for Python ;)
 func! DeleteTrailingWS()
@@ -267,12 +311,10 @@ func! DeleteTrailingWS()
   %s/\s\+$//ge
   exe "normal `z"
 endfunc
-nnoremap <silent> <Leader>cl :call DeleteTrailingWS()<CR>
 
 autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.rb :call DeleteTrailingWS()
 autocmd BufWrite *.lua :call DeleteTrailingWS()
-
 
 if exists(":Tabularize")
   nmap <Leader>a= :Tabularize /=<CR>
@@ -288,17 +330,6 @@ function! g:ToggleNuMode()
     set rnu
   endif
 endfunction
-nnoremap <silent> <leader>n :call g:ToggleNuMode()<cr>
-
-" Make vertical splits default to the right hand side:
-set spr
-
-" This beauty remembers where you were the last time you edited the file, and returns to the same position.
-au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
-
-" Xclip integration:
-vmap <F9> :!xclip -f -sel clip<CR> " copy text to xorg server clipboard
-map <F10> :-1r !xclip -o -sel clip<CR> " paste text from xserv clip to vim
 
 " Append modeline after last line in buffer.
 " Use substitute() instead of printf() to handle '%%s' modeline in LaTeX
@@ -309,7 +340,6 @@ function! AppendModeline()
   let l:modeline = substitute(&commentstring, "%s", l:modeline, "")
   call append(line("$"), l:modeline)
 endfunction
-nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
 
 if has("mac")
   set clipboard=unnamed
