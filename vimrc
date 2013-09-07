@@ -241,12 +241,8 @@ nnoremap <silent> <leader>sv :source $MYVIMRC<CR>
 " GUI Config "
 """"""""""""""
 
-if has('gui_running')
-  colorscheme molokai
-else
-  set background=dark
-  colorscheme desert256
-endif
+set background=dark
+colorscheme molokai
 
 if exists("&guifont")
   if has("mac")
