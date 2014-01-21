@@ -176,12 +176,12 @@ vmap <leader>yz "zy
 map <leader>p "+p
 
 " Tab configuration
-" map <leader>to :tabnew! %<CR>
-" map <leader>te :tabedit
-" map <leader>tc :tabclose<CR>
-" map <leader>tm :tabmove
-" map <leader>tn :tabn<CR>
-" map <leader>tp :tabp<CR>
+map <leader>to :tabnew! %<CR>
+map <leader>te :tabedit
+map <leader>tc :tabclose<CR>
+map <leader>tm :tabmove
+map <leader>tn :tabn<CR>
+map <leader>tp :tabp<CR>
 
 " Tag list
 map <F8> :!/usr/local/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
