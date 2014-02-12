@@ -211,6 +211,9 @@ map <silent> <S-W> <Plug>CamelCaseMotion_w
 map <silent> <S-B> <Plug>CamelCaseMotion_b
 map <silent> <S-E> <Plug>CamelCaseMotion_e
 
+" Rainbow Parens
+map <leader>rt :RainbowParenthesesToggle<cr>
+
 " When pressing <leader>cd switch to the directory of the open buffer
 map <leader>cd :cd %:p:h<CR>
 
