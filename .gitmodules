@@ -97,3 +97,6 @@
 [submodule "bundle/classpath"]
 	path = bundle/classpath
 	url = git://github.com/tpope/vim-classpath.git
+[submodule "bundle/syntastic"]
+	path = bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
