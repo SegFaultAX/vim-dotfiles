@@ -33,12 +33,6 @@ let python_highlight_all = 1
 " Pyflakes (.py files only)
 let g:pyflakes_use_quickfix = 0
 
-" Taglist configuration
-let Tlist_Ctags_Cmd = "/usr/local/bin/ctags"
-let Tlist_WinWidth = 50
-
-let g:SuperTabDefaultCompletionType = "context"
-
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
 let mapleader = ","
@@ -226,9 +220,6 @@ vmap <M-k> :m'<-2<CR>`>my`<mzgv`yo`z
 " NERDTree
 map <F2> :NERDTreeToggle<CR>
 
-" MRU (Most Recently Used)
-map <F3> :MRU<CR>
-
 nnoremap <silent> <Leader>cl :call DeleteTrailingWS()<CR>
 nnoremap <silent> <leader>n :call g:ToggleNuMode()<CR>
 nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
@@ -316,13 +307,6 @@ endfunc
 autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.rb :call DeleteTrailingWS()
 autocmd BufWrite *.lua :call DeleteTrailingWS()
-
-if exists(":Tabularize")
-  nmap <Leader>a= :Tabularize /=<CR>
-  vmap <Leader>a= :Tabularize /=<CR>
-  nmap <Leader>a: :Tabularize /:\zs<CR>
-  vmap <Leader>a: :Tabularize /:\zs<CR>
-endif
 
 function! g:ToggleNuMode()
   if (&rnu == 1)
