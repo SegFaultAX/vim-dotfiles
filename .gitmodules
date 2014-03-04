@@ -4,9 +4,6 @@
 [submodule "bundle/fugitive"]
 	path = bundle/fugitive
 	url = https://github.com/tpope/vim-fugitive.git
-[submodule "bundle/snipmate"]
-	path = bundle/snipmate
-	url = https://github.com/msanders/snipmate.vim.git
 [submodule "bundle/surround"]
 	path = bundle/surround
 	url = https://github.com/tpope/vim-surround.git
@@ -61,9 +58,6 @@
 [submodule "bundle/textobj-user"]
 	path = bundle/textobj-user
 	url = https://github.com/kana/vim-textobj-user.git
-[submodule "snippets"]
-	path = snippets
-	url = git://github.com/SegFaultAX/snipmate-snippets.git
 [submodule "bundle/markdown"]
 	path = bundle/markdown
 	url = https://github.com/tpope/vim-markdown.git
