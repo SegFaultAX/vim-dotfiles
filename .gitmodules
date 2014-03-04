@@ -97,3 +97,15 @@
 [submodule "bundle/jinja2"]
 	path = bundle/jinja2
 	url = https://github.com/Glench/Vim-Jinja2-Syntax.git
+[submodule "bundle/addon-mw-utils"]
+	path = bundle/addon-mw-utils
+	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
+[submodule "bundle/tlib"]
+	path = bundle/tlib
+	url = https://github.com/tomtom/tlib_vim.git
+[submodule "bundle/snippets"]
+	path = bundle/snippets
+	url = https://github.com/honza/vim-snippets.git
+[submodule "bundle/snipmate"]
+	path = bundle/snipmate
+	url = https://github.com/garbas/vim-snipmate.git
