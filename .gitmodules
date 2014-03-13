@@ -112,3 +112,6 @@
 [submodule "bundle/supertab"]
 	path = bundle/supertab
 	url = https://github.com/ervandew/supertab.git
+[submodule "bundle/ansible-yaml"]
+	path = bundle/ansible-yaml
+	url = https://github.com/chase/vim-ansible-yaml.git
