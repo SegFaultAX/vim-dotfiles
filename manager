@@ -39,8 +39,7 @@ function usage() {
   echo "  --update-submodules - fetch newest submodule versions"
   echo "  --clean-branches - remove all maintainer repo branches"
   echo
-  echo "  --init - initialize submodules and clean Snipmate"
-  echo "  --init-snipmate - clean Snipmate"
+  echo "  --init - initialize submodules"
   echo "  --init-submodules - initialize submodules"
   echo
 }
@@ -54,16 +53,6 @@ function init_submodules() {
     echo "Run this command from the root of the project."
     exit 1
   fi
-}
-
-function init_snipmate() {
-  # Remove snipmate/snippets directory
-  if [ -d $BUNDLE/snipmate/snippets ]; then
-    echo "Removing snipmate/snippets directory..."
-    rm -rf $BUNDLE/snipmate/snippets
-  fi
-  echo "Copying support functions..."
-  cp -f snippets/support_functions.vim bundle/snipmate/plugin/
 }
 
 function update_submodules() {
@@ -110,7 +99,6 @@ symlink=
 submodules=
 clean=
 
-init_snipmate=
 init_submodules=
 
 if [ "$#" -eq 0 ]; then usage; fi
@@ -125,10 +113,7 @@ while [ "$#" -gt 0 ]; do
     --update-submodules) submodules="yes";;
     --clean-branches) clean="yes";;
 
-    --init) init_snipmate="yes"
-      init_submodules="yes"
-      ;;
-    --init-snipmate) init_snipmate="yes";;
+    --init) init_submodules="yes";;
     --init-submodules) init_submodules="yes";;
     *) echo "Unknown option $opt"; exit 1;;
   esac
@@ -140,4 +125,3 @@ if [ "$submodules" = "yes" ]; then update_submodules; fi
 if [ "$clean" = "yes" ]; then clean_branches; fi
 
 if [ "$init_submodules" = "yes" ]; then init_submodules; fi
-if [ "$init_snipmate" = "yes" ]; then init_snipmate; fi
