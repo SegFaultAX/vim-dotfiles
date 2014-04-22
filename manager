@@ -91,6 +91,13 @@ function clean_branches() {
     xargs git branch -D
 }
 
+function init_ycm() {
+  echo "Building you-complete-me"
+  pushd bundle/youcompleteme
+  ./install.sh --clang-completer --system-libclang
+  popd
+}
+
 echo "Manager by Michael-Keith Bernard"
 
 # Section configuration
@@ -100,6 +107,7 @@ submodules=
 clean=
 
 init_submodules=
+init_ycm=
 
 if [ "$#" -eq 0 ]; then usage; fi
 
@@ -113,7 +121,11 @@ while [ "$#" -gt 0 ]; do
     --update-submodules) submodules="yes";;
     --clean-branches) clean="yes";;
 
-    --init) init_submodules="yes";;
+    --init)
+      init_submodules="yes"
+      init_ycm="yes"
+      ;;
+    --init-ycm) init_ycm="yes";;
     --init-submodules) init_submodules="yes";;
     *) echo "Unknown option $opt"; exit 1;;
   esac
@@ -125,3 +137,4 @@ if [ "$submodules" = "yes" ]; then update_submodules; fi
 if [ "$clean" = "yes" ]; then clean_branches; fi
 
 if [ "$init_submodules" = "yes" ]; then init_submodules; fi
+if [ "$init_ycm" = "yes" ]; then init_ycm; fi
