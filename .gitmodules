@@ -115,3 +115,6 @@
 [submodule "bundle/paredit"]
 	path = bundle/paredit
 	url = https://github.com/vim-scripts/paredit.vim.git
+[submodule "bundle/neocomplete"]
+	path = bundle/neocomplete
+	url = https://github.com/Shougo/neocomplete.vim.git
