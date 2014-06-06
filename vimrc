@@ -24,6 +24,9 @@ let g:pyindent_nested_paren = '&sw'
 " Indent for a continuation line: >
 let g:pyindent_continue = '&sw'
 
+" Syntastic
+let g:syntastic_python_checkers = ['pyflakes']
+
 " Enable neocomplete
 let g:neocomplete#enable_at_startup = 1
 
