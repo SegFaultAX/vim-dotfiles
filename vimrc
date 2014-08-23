@@ -2,7 +2,7 @@
 " Filetype has to be off when pathogen is first run
 filetype off
 call pathogen#infect()
-call pathogen#helptags()
+" call pathogen#helptags()
 filetype on
 
 " Filetype plugin
