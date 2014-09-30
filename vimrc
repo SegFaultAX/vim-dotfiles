@@ -1,5 +1,6 @@
 " Load pathogen and its submodules
 " Filetype has to be off when pathogen is first run
+
 filetype off
 call pathogen#infect()
 " call pathogen#helptags()
@@ -29,6 +30,8 @@ let g:syntastic_python_checkers = ['pyflakes']
 
 " Enable neocomplete
 let g:neocomplete#enable_at_startup = 1
+" neocomplete overwrite completefunc
+let g:neocomplete#force_overwrite_completefunc = 1
 
 " Disable paredit by default
 let g:paredit_mode = 0
