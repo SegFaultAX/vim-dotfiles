@@ -335,6 +335,8 @@ endfunc
 autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.rb :call DeleteTrailingWS()
 autocmd BufWrite *.lua :call DeleteTrailingWS()
+autocmd BufWrite *.yaml :call DeleteTrailingWS()
+autocmd BufWrite *.yml :call DeleteTrailingWS()
 
 function! g:ToggleNuMode()
   if (&rnu == 1)
