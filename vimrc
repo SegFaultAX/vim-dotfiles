@@ -79,7 +79,7 @@ set number
 
 set spr
 
-set completeopt=menuone,longest,preview
+set completeopt=menuone,longest
 
 " Word wrapping - on, col 80
 set nowrap
