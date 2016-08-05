@@ -21,6 +21,21 @@ with Ruby and Python support, you can use `vim --version` to check.
 **Note**: If you choose to fork this repo, you can fetch my current master
 version using the `--fetch-vimrc` command in manager.
 
+### NeoVim Users
+
+This vim configuration should work as is with neovim (for the most part). If
+neovim is not correctly loading configuration from `~/.vim`, see this issue:
+
+https://github.com/neovim/neovim/issues/3499
+
+And the documentation:
+
+https://github.com/neovim/neovim/blob/master/runtime/doc/vim_diff.txt#L22
+
+```vim
+:help vim_diff
+```
+
 ## The "manager" Script
 
   The `manager` script makes staying up to date with this repository a breeze.
