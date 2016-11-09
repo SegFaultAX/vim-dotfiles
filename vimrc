@@ -42,6 +42,9 @@ let python_highlight_all = 1
 " Pyflakes (.py files only)
 let g:pyflakes_use_quickfix = 0
 
+" Ignore pyc files in NERDTree
+let NERDTreeIgnore = ['\.pyc$']
+
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
 let mapleader = ","
