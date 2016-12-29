@@ -133,3 +133,9 @@
 [submodule "bundle/editorconfig"]
 	path = bundle/editorconfig
 	url = git@github.com:editorconfig/editorconfig-vim.git
+[submodule "bundle/ghcmod"]
+	path = bundle/ghcmod
+	url = https://github.com/eagletmt/ghcmod-vim.git
+[submodule "bundle/neco-ghc"]
+	path = bundle/neco-ghc
+	url = https://github.com/eagletmt/neco-ghc
