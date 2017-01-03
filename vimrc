@@ -17,6 +17,9 @@ highlight Pmenu ctermbg=238 gui=bold
 " Variables "
 """""""""""""
 
+" Syntastic - Always enable location list
+let g:syntastic_always_populate_loc_list = 1
+
 " (see :help ft-python-indent)
 " Indent after an open paren: >
 let g:pyindent_open_paren = '&sw'
