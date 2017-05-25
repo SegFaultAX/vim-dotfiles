@@ -142,3 +142,6 @@
 [submodule "bundle/vimproc"]
 	path = bundle/vimproc
 	url = https://github.com/Shougo/vimproc.vim.git
+[submodule "bundle/golang"]
+	path = bundle/golang
+	url = https://github.com/fatih/vim-go.git
