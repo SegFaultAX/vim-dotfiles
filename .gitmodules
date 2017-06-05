@@ -19,12 +19,6 @@
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
 	url = https://github.com/vim-scripts/The-NERD-tree.git
-[submodule "bundle/speeddating"]
-	path = bundle/speeddating
-	url = https://github.com/tpope/vim-speeddating.git
-[submodule "bundle/fuf"]
-	path = bundle/fuf
-	url = https://github.com/vim-scripts/FuzzyFinder.git
 [submodule "bundle/L9"]
 	path = bundle/L9
 	url = https://github.com/vim-scripts/L9.git
@@ -34,15 +28,9 @@
 [submodule "bundle/tcomment"]
 	path = bundle/tcomment
 	url = https://github.com/tomtom/tcomment_vim.git
-[submodule "bundle/sparkup"]
-	path = bundle/sparkup
-	url = https://github.com/bingaman/vim-sparkup.git
 [submodule "bundle/endwise"]
 	path = bundle/endwise
 	url = https://github.com/tpope/vim-endwise.git
-[submodule "bundle/coffee-script"]
-	path = bundle/coffee-script
-	url = https://github.com/kchmck/vim-coffee-script.git
 [submodule "bundle/CamelCaseMotion"]
 	path = bundle/CamelCaseMotion
 	url = https://github.com/bkad/CamelCaseMotion.git
@@ -85,9 +73,6 @@
 [submodule "bundle/ctrlp"]
 	path = bundle/ctrlp
 	url = git://github.com/kien/ctrlp.vim.git
-[submodule "bundle/fireplace"]
-	path = bundle/fireplace
-	url = git://github.com/tpope/vim-fireplace.git
 [submodule "bundle/classpath"]
 	path = bundle/classpath
 	url = git://github.com/tpope/vim-classpath.git
@@ -103,21 +88,12 @@
 [submodule "bundle/tlib"]
 	path = bundle/tlib
 	url = https://github.com/tomtom/tlib_vim.git
-[submodule "bundle/snippets"]
-	path = bundle/snippets
-	url = https://github.com/honza/vim-snippets.git
-[submodule "bundle/snipmate"]
-	path = bundle/snipmate
-	url = https://github.com/garbas/vim-snipmate.git
 [submodule "bundle/ansible-yaml"]
 	path = bundle/ansible-yaml
 	url = https://github.com/chase/vim-ansible-yaml.git
 [submodule "bundle/paredit"]
 	path = bundle/paredit
 	url = https://github.com/vim-scripts/paredit.vim.git
-[submodule "bundle/neocomplete"]
-	path = bundle/neocomplete
-	url = https://github.com/Shougo/neocomplete.vim.git
 [submodule "bundle/puppet"]
 	path = bundle/puppet
 	url = https://github.com/rodjek/vim-puppet.git
@@ -130,9 +106,6 @@
 [submodule "bundle/javascript"]
 	path = bundle/javascript
 	url = https://github.com/pangloss/vim-javascript.git
-[submodule "bundle/editorconfig"]
-	path = bundle/editorconfig
-	url = git@github.com:editorconfig/editorconfig-vim.git
 [submodule "bundle/ghcmod"]
 	path = bundle/ghcmod
 	url = https://github.com/eagletmt/ghcmod-vim.git
