@@ -118,3 +118,6 @@
 [submodule "bundle/golang"]
 	path = bundle/golang
 	url = https://github.com/fatih/vim-go.git
+[submodule "bundle/jsonnet"]
+	path = bundle/jsonnet
+	url = https://github.com/google/vim-jsonnet.git
